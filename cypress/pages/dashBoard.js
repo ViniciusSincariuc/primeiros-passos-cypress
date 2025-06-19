@@ -1,9 +1,9 @@
-class dashboardPage{
+class dashboardPage {
     selectorsList(){
         const dashBoard = {
             
             dashboardGrid: ".orangehrm-dashboard-grid",
-            myinfoButton: '[href="/web/index.php/pim/viewMyDetails"]'
+            //myinfoButton: '[href="/web/index.php/pim/viewMyDetails"]'
         
         }
 
@@ -15,7 +15,7 @@ class dashboardPage{
 
         cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
         cy.get(this.selectorsList().dashboardGrid).should('be.visible')
-        cy.get(this.selectorsList().myinfoButton).click()
+        //cy.get(this.selectorsList().myinfoButton).click()
         //cy.get(selectorsList.dashboardGrid)
 
     }

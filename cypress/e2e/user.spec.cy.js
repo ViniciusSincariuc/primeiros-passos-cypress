@@ -16,18 +16,24 @@ describe('Orange HRM Tests', () => {
 
     loginPage.acessLoginPage()
     loginPage.loginWithAnyUser(userDate.userSuccess.username, userDate.userSuccess.password)
+
     dashBoard.checkdashBoardPage()
+
     pageMenu.menuPage()
-    pageObjects.myobjectsInfo()
+
+    pageObjects.fillPersonalDetails('Vinicius', 'Roberto', 'Sincariuc')
+    pageObjects.fillEmployeeDetails('ViUser', "1234", "drive123", "2031-22-09")
+    pageObjects.fillStatus('Brazilian', 'Single', 'Female')
+    pageObjects.saveForm1()
+    pageObjects.fillCustomDetails("O+", "2255")
+    pageObjects.saveForm2()
     
   })
 
     it('Login - Fail', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorsList.usernameField).type(userDate.userFail.username)
-    cy.get(selectorsList.passwordField).type(userDate.userFail.password)
-    cy.get(selectorsList.loginbutton).click()
-    cy.get(selectorsList.wrongcredentialAlert)
-    
+      loginPage.acessLoginPage()
+      loginPage.loginWithAnyUser(userDate.userFail, userDate.userFail.password)
+      cy.get(selectorsList.wrongcredentialAlert)
+
    })
 })

@@ -12,7 +12,7 @@ const pageObjects = new PageObjects()
 
 describe('Orange HRM Tests', () => {
 
-  it.only('User Info Update - Success', () => {
+  it('User Info Update - Success', () => {
 
     loginPage.acessLoginPage()
     loginPage.loginWithAnyUser(userDate.userSuccess.username, userDate.userSuccess.password)
@@ -32,8 +32,8 @@ describe('Orange HRM Tests', () => {
 
     it('Login - Fail', () => {
       loginPage.acessLoginPage()
-      loginPage.loginWithAnyUser(userDate.userFail, userDate.userFail.password)
-      cy.get(selectorsList.wrongcredentialAlert)
+      loginPage.loginWithAnyUser(userDate.userFail.username, userDate.userFail.password)
+      loginPage.checkAcessInvalid()
 
    })
 })

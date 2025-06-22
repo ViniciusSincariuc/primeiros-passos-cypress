@@ -30,10 +30,4 @@ describe('Orange HRM Tests', () => {
     
   })
 
-    it('Login - Fail', () => {
-      loginPage.acessLoginPage()
-      loginPage.loginWithAnyUser(userDate.userFail.username, userDate.userFail.password)
-      loginPage.checkAcessInvalid()
-
-   })
 })

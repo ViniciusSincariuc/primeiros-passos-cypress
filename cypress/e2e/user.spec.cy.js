@@ -4,7 +4,9 @@ import DashBoardPage from '../pages/dashBoard.js'
 import MenuPage from '../pages/menuPage.js'
 import PageObjects from '../pages/pageObjects.js'
 
+const Chance = require('chance');
 
+const chance = new Chance();
 const loginPage = new LoginPage()
 const dashBoard = new DashBoardPage()
 const pageMenu = new MenuPage()
@@ -21,9 +23,9 @@ describe('Orange HRM Tests', () => {
 
     pageMenu.menuPage()
 
-    pageObjects.fillPersonalDetails('Vinicius', 'Roberto', 'Sincariuc')
-    pageObjects.fillEmployeeDetails('ViUser', "1234", "drive123", "2031-22-09")
-    pageObjects.fillStatus('Brazilian', 'Single', 'Female')
+    pageObjects.fillPersonalDetails(chance.first(), chance.last(), chance.last())
+    pageObjects.fillEmployeeDetails('ViUser', chance.ssn({ ssnFour: true }), "drive123", "2031-22-09")
+    pageObjects.fillStatus('Brazilian', 'Single', chance.gender())
     pageObjects.saveForm1()
     pageObjects.fillCustomDetails("O+", "2255")
     pageObjects.saveForm2()

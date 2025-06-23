@@ -45,7 +45,7 @@ class pageObjects {
 
             cy.get(this.selectorsList().myboxselectorGeneric).eq(2).click()
             cy.contains('.oxd-select-option', bloodType).should('be.visible').click()
-            cy.get(this.selectorsList().myOptions).clear().type(testFild)
+            cy.get(this.selectorsList().myOptions).eq(4).clear().type(testFild)
             }
 
         saveForm1(){
